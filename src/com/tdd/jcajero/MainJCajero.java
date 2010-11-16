@@ -11,7 +11,10 @@ public class MainJCajero {
 	 */
 	public static void main(String[] args) throws IOException {
 
-		Bank bankBBVA = new BBVABank();
+		BankURL url = new BankURL();
+		BankConnector connector = new BankConnector(url);
+		Bank bankBBVA = new BBVABank(connector);
+
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
 
@@ -27,11 +30,10 @@ public class MainJCajero {
 
 		try {
 			PIN pin = PIN.fromString(pinText);
-			
+
 		} catch (IllegalArgumentException e) {
 			System.out.println("Pin no valido");
 		}
-
 	}
 
 }

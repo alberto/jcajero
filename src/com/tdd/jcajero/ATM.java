@@ -2,31 +2,20 @@ package com.tdd.jcajero;
 
 public class ATM {
 
-	private Card card;
-
 	private final Amount initialATMAmount;
+	private final Bank bank;
 
-	public ATM(Amount initialATMAmount) {
-		card = null;
+	public ATM(Bank bank, Amount initialATMAmount) {
+		this.bank = bank;
 		this.initialATMAmount = initialATMAmount;
-	}
-
-	public boolean acceptCard(Card card) {
-		boolean accepted = false;
-
-		if (card != null) {
-			this.card = card;
-			accepted = true;
-		}
-
-		return accepted;
 	}
 
 	public Amount atmAvailableAmount() {
 		return initialATMAmount;
 	}
 
-	public void authenticateCardWithPin(PIN pin) {
-
+	public Account accessAccount(Card card, PIN pin) {
+		return bank.accessAcount(card, pin);
 	}
+
 }
