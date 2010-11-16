@@ -8,8 +8,8 @@ public class MainJCajero {
 	 * @param args
 	 */
 	public static void main(String[] args) throws IOException {
-
-		BankConnector connector = new BankConnector();
+		BankURL url = new BankURL();
+		BankConnector connector = new BankConnector(url);
 		Bank bankBBVA = new BBVABank(connector);
 
 		System.out.println("******** BIENVENIDO AL CAJERO BBVA DEL INFIERNO");
