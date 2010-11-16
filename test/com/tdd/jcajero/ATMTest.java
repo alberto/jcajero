@@ -1,6 +1,6 @@
 package com.tdd.jcajero;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -45,4 +45,15 @@ public class ATMTest {
 		atm.accessAccount(card, pin);
 	}
 
+	@Test
+	public void canValidateIfATMAmountIsEnoughForWithdrawal() {
+		Amount amountToBeWithdrawn = new Amount(1);
+		assertTrue(atm.hasEnoughAmountToWithdraw(amountToBeWithdrawn));
+	}
+
+	@Test
+	public void cannotWithdrawMoneyIfAmountIsTooBig() {
+		Amount amountToBeWithdrawn = new Amount(100000);
+		assertFalse(atm.hasEnoughAmountToWithdraw(amountToBeWithdrawn));
+	}
 }

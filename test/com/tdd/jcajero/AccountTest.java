@@ -43,14 +43,4 @@ public class AccountTest {
 
 		verify(bank).withdraw(token, ammount);
 	}
-
-	@Test(expected = BankException.class)
-	public void itShouldRaiseExceptionWhenSomethigWrong() throws Exception {
-		Amount ammount = new Amount(10000);
-
-		doThrow(new BankException()).when(bank).withdraw(token, ammount);
-
-		userAccount.withdraw(ammount);
-
-	}
 }
