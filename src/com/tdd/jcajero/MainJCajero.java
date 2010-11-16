@@ -33,26 +33,33 @@ public class MainJCajero {
 			PIN pin = PIN.fromString(pinText);
 			ATM atm = new ATM(bankBBVA, new Amount(INITIAL_AMOUNT));
 			Account account = atm.accessAccount(card, pin);
+			Operation operation;
 
 			if (account != null) {
 
-				int operation = 0;
+				int operationIndex = -1;
 				do {
 
 					System.out.println("1.- Retirar dinero");
 					System.out.println("2.- Consultar saldo");
+					System.out.println("0.- Salir");
 
 					String operationString = reader.readLine();
+					int currentBalance = 0;
 					try {
-						operation = Integer.parseInt(operationString);
+						operationIndex = Integer.parseInt(operationString);
 						
-						switch (operation) {
+						switch (operationIndex) {
 						case 1:
-							
+							operation = new WithdrawMoneyOperation(atm, account);
+							currentBalance = operation.execute();
+							System.out.println("El saldo resultante es: "+ currentBalance);
 							break;
 							
 						case 2:
-							
+							operation = new RequestBalanceOperation(atm, account);
+							currentBalance = operation.execute();
+							System.out.println("Tu saldo actual es: "+ currentBalance);
 							break;
 
 						default:
@@ -63,7 +70,7 @@ public class MainJCajero {
 						System.out.println("No seas listo y mete un nœmero ;)");
 					}
 
-				} while (operation != -1);
+				} while (operationIndex != 0);
 			}
 			System.out.println("Gracias por usar nuestro banco.");
 
