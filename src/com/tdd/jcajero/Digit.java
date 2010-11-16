@@ -28,4 +28,15 @@ public class Digit {
 		return false;
 	}
 
+	public static Digit digitFromString(String string, int position) {
+		Digit digit = null;
+		
+		char[] stringChars = string.toCharArray();
+		char positionChar = stringChars[position-1];
+		String positionString = "" + positionChar;
+		digit = new Digit(Integer.parseInt(positionString));
+		
+		return digit;
+	}
+
 }
