@@ -4,16 +4,29 @@ public class ATM {
 
 	private Card card;
 
-	public ATM(Card card) {
-		this.card = card;
+	private final Amount initialATMAmount;
+
+	public ATM(Amount initialATMAmount) {
+		card = null;
+		this.initialATMAmount = initialATMAmount;
 	}
 
-	public boolean acceptCard() {
-		return true;
+	public boolean acceptCard(Card card) {
+		boolean accepted = false;
+
+		if (card != null) {
+			this.card = card;
+			accepted = true;
+		}
+
+		return accepted;
+	}
+
+	public Amount atmAvailableAmount() {
+		return initialATMAmount;
 	}
 
 	public void authenticateCardWithPin(PIN pin) {
 
 	}
-
 }
