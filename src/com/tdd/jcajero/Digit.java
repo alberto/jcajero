@@ -18,4 +18,14 @@ public class Digit {
 	private boolean moreThanNine(final int digitValue) {
 		return digitValue > 9;
 	}
+
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof Digit) {
+			Digit otherDigit = (Digit) other;
+			return value == otherDigit.value;
+		}
+		return false;
+	}
+
 }
