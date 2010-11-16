@@ -63,4 +63,22 @@ public class PIN {
 	private boolean thisPinHasTheSameFourthDigitAs(PIN otherPin) {
 		return fourth.equals(otherPin.fourth);
 	}
+
+	public static PIN fromString(String pinText) {
+		if (stringNotEquals4(pinText)){
+			throw new IllegalArgumentException("format pin no valid, pin has not 4 digits");
+		}
+		
+		Digit digit1 = Digit.digitFromString(pinText, 1);
+		Digit digit2 = Digit.digitFromString(pinText, 2);
+		Digit digit3 = Digit.digitFromString(pinText, 3);
+		Digit digit4 = Digit.digitFromString(pinText, 4);
+		
+		return new PIN(digit1, digit2, digit3, digit4);
+	}
+	
+	private static boolean stringNotEquals4(String string){
+		return string.length() != 4;
+	}
+	
 }

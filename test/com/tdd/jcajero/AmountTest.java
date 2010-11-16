@@ -65,4 +65,18 @@ public class AmountTest {
 		assertEquals(-5, minusFive.storedAmount());
 	}
 
+	@Test
+	public void canCompareIfAnAmountIsLowerThanOther() {
+		Amount amount = new Amount(5);
+		Amount smallerAmount = new Amount(1);
+		assertTrue(smallerAmount.isLowerThan(amount));
+	}
+
+	@Test
+	public void canCompareIfAnAmountIsHigherThanOther() {
+		Amount amount = new Amount(5);
+		Amount higherAmount = new Amount(10);
+		assertFalse(higherAmount.isLowerThan(amount));
+	}
+
 }

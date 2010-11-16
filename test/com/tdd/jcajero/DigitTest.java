@@ -1,5 +1,6 @@
 package com.tdd.jcajero;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -58,5 +59,13 @@ public class DigitTest {
 	public void aDigitIsNotEqualToNull() throws Exception {
 		digit = new Digit(1);
 		assertFalse(digit.equals(null));
+	}
+	
+	@Test
+	public void createDigitFromFirstPositionOfString(){
+		
+		Digit digitFromString = Digit.digitFromString("5471", 1);
+		digit = new Digit(5);
+		assertTrue(digit.equals(digitFromString));
 	}
 }

@@ -21,4 +21,8 @@ public class Amount {
 		return value == comparedAmount.storedAmount();
 	}
 
+	public boolean isLowerThan(Amount amount) {
+		return value < amount.storedAmount();
+	}
+
 }

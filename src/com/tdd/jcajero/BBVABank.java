@@ -2,7 +2,7 @@ package com.tdd.jcajero;
 
 public class BBVABank implements Bank {
 
-	private BankConnector connector;
+	private final BankConnector connector;
 
 	public BBVABank(BankConnector connector) {
 		this.connector = connector;
@@ -14,12 +14,11 @@ public class BBVABank implements Bank {
 	}
 
 	public Amount accountBalance(String token) {
-		throw new UnsupportedOperationException("Not supported yet.");
+		return connector.accountBalance(token);
 	}
 
-	public void withdraw(String token, Amount ammount) {
-		throw new UnsupportedOperationException("Not supported yet.");
-
+	public void withdraw(String token, Amount amount) {
+		connector.withdraw(token, amount);
 	}
 
 }
