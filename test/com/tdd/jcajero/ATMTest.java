@@ -31,7 +31,6 @@ public class ATMTest {
 
 	@Test
 	public void canRequestAvailableAmount() {
-		assertEquals(initialATMAmount, atm.availableAmount());
+		assertEquals(initialATMAmount, atm.atmAvailableAmount());
 	}
-
 }
