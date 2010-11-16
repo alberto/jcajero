@@ -69,7 +69,7 @@ public class MainJCajero {
 						}
 						
 					} catch (NumberFormatException e) {
-						System.out.println("No seas listo y mete un nœmero ;)");
+						System.out.println("No seas listo y mete un numero ;)");
 					}
 
 				} while (operationIndex != 0);
