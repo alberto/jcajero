@@ -2,14 +2,15 @@ package com.tdd.jcajero;
 
 public class RequestBalanceOperation implements Operation {
 
-	public RequestBalanceOperation(ATM atm, Account account) {
-		// TODO Auto-generated constructor stub
+	private Account account;
+	
+	public RequestBalanceOperation(Account account) {
+		this.account = account;
 	}
 
 	@Override
-	public int execute() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Amount execute() {
+		return account.balance();
 	}
 
 }

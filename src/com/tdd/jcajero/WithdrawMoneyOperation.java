@@ -2,14 +2,19 @@ package com.tdd.jcajero;
 
 public class WithdrawMoneyOperation implements Operation {
 
-	public WithdrawMoneyOperation(ATM atm, Account account) {
-		// TODO Auto-generated constructor stub
+	private ATM atm;
+	private Account account;
+	private Amount amountToWithDraw;
+	
+	public WithdrawMoneyOperation(ATM atm, Account account, Amount amountWithDraw) {
+		this.atm = atm;
+		this.account = account;
+		this.amountToWithDraw = amountWithDraw;
 	}
 
 	@Override
-	public int execute() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Amount execute() {
+		return null;
 	}
 
 }

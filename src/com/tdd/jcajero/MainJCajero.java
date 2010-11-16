@@ -45,19 +45,21 @@ public class MainJCajero {
 					System.out.println("0.- Salir");
 
 					String operationString = reader.readLine();
-					int currentBalance = 0;
+					Amount currentBalance = null;
 					try {
 						operationIndex = Integer.parseInt(operationString);
 						
 						switch (operationIndex) {
 						case 1:
-							operation = new WithdrawMoneyOperation(atm, account);
+							System.out.println("Cantidad a retirar: ");
+							String amountToWithdraw = reader.readLine();
+							operation = new WithdrawMoneyOperation(atm, account, new Amount(Integer.parseInt(amountToWithdraw)));
 							currentBalance = operation.execute();
 							System.out.println("El saldo resultante es: "+ currentBalance);
 							break;
 							
 						case 2:
-							operation = new RequestBalanceOperation(atm, account);
+							operation = new RequestBalanceOperation(account);
 							currentBalance = operation.execute();
 							System.out.println("Tu saldo actual es: "+ currentBalance);
 							break;
