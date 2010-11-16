@@ -6,9 +6,8 @@ import static org.junit.Assert.*;
 public class ATMTest {
 	
 	@Test
-	public void getCardTest(){
-		PIN pin = new PIN(new Digit(1), new Digit(1), new Digit(1), new Digit(1));
-		Card card = new Card(pin);
+	public void acceptCardTest(){
+		Card card = new Card("Alicia");
 		
 		ATM atm = new ATM(card);
 		assertTrue(atm.acceptCard());
