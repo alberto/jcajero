@@ -7,8 +7,7 @@ public class BBVABank implements Bank {
 	}
 
 	public Account accessAcount(Card card, PIN pin) {
-		// TODO Auto-generated method stub
-		return null;
+		return new Account(this, "");
 	}
 
 	@Override
