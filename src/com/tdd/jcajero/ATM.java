@@ -14,8 +14,9 @@ public class ATM {
 		return true;
 	}
 
-	public Amount availableAmount() {
+	public Amount atmAvailableAmount() {
 		return initialATMAmount;
 	}
+
 
 }
