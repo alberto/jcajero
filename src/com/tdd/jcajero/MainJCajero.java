@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 
 public class MainJCajero {
 
+	private static final int INITIAL_AMOUNT = 10000;
+
 	/**
 	 * @param args
 	 */
@@ -26,10 +28,44 @@ public class MainJCajero {
 		Card card = new Card(user);
 		System.out.println("Introduzca el PIN de la tarjeta: ");
 		String pinText = reader.readLine();
-		System.out.println(pinText);
 
 		try {
 			PIN pin = PIN.fromString(pinText);
+			ATM atm = new ATM(bankBBVA, new Amount(INITIAL_AMOUNT));
+			Account account = atm.accessAccount(card, pin);
+
+			if (account != null) {
+
+				int operation = 0;
+				do {
+
+					System.out.println("1.- Retirar dinero");
+					System.out.println("2.- Consultar saldo");
+
+					String operationString = reader.readLine();
+					try {
+						operation = Integer.parseInt(operationString);
+						
+						switch (operation) {
+						case 1:
+							
+							break;
+							
+						case 2:
+							
+							break;
+
+						default:
+							break;
+						}
+						
+					} catch (NumberFormatException e) {
+						System.out.println("No seas listo y mete un nœmero ;)");
+					}
+
+				} while (operation != -1);
+			}
+			System.out.println("Gracias por usar nuestro banco.");
 
 		} catch (IllegalArgumentException e) {
 			System.out.println("Pin no valido");
