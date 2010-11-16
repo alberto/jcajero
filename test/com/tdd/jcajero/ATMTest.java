@@ -2,7 +2,7 @@ package com.tdd.jcajero;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,16 +27,22 @@ public class ATMTest {
 
 	@Test
 	public void authenticateCardWithCorrectPin() {
-		Card card = new Card("Alicia");
-		Digit digit1 = new Digit(1);
-		Digit digit2 = new Digit(1);
-		Digit digit3 = new Digit(1);
-		Digit digit4 = new Digit(1);
-		PIN pin = new PIN(digit1, digit2, digit3, digit4);
+		Card card = mock(Card.class);
+		PIN pin = mock(PIN.class);
+		Account expectedAccount = mock(Account.class);
+		when(bank.accessAcount(card, pin)).thenReturn(expectedAccount);
 
-		Account account = atm.accessAccount(card, pin);
+		assertEquals(atm.accessAccount(card, pin), expectedAccount);
+	}
 
-		verify(bank).accessAcount(card, pin);
+	@Test(expected = InvalidPinException.class)
+	public void authenticateCardWithIncorrectPin() throws Exception {
+		Card card = mock(Card.class);
+		PIN pin = mock(PIN.class);
+
+		when(bank.accessAcount(card, pin)).thenThrow(new InvalidPinException());
+
+		atm.accessAccount(card, pin);
 	}
 
 }
