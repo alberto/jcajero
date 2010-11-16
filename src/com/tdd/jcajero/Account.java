@@ -1,6 +1,6 @@
 package com.tdd.jcajero;
 
-class Account {
+public class Account {
 	private final Bank bank;
 	private final String token;
 
