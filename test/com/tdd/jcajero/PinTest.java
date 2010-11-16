@@ -95,4 +95,10 @@ public class PinTest {
 	public void nullIsDifferentFromAPin() throws Exception {
 		assertFalse(pin.equals(null));
 	}
+	
+	@Test
+	public void createPINFromString(){
+		String pinText = new String("1111");
+		assertNotNull(PIN.fromString(pinText));
+	}
 }
