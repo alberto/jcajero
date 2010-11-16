@@ -6,10 +6,14 @@ public class BBVABank implements Bank {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public Account accessAcount(Card card, PIN pin) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Amount accountBalance(String token) {
+		throw new UnsupportedOperationException("Not supported yet.");
 	}
 
 }
