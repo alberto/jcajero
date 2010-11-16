@@ -1,15 +1,19 @@
 package com.tdd.jcajero;
 
 public class ATM {
-	
+
 	private Card card;
-	
-	public ATM(Card card){
+
+	public ATM(Card card) {
 		this.card = card;
 	}
-	
-	public boolean acceptCard(){
+
+	public boolean acceptCard() {
 		return true;
+	}
+
+	public void authenticateCardWithPin(PIN pin) {
+
 	}
 
 }
