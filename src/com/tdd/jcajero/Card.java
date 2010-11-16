@@ -2,14 +2,13 @@ package com.tdd.jcajero;
 
 public class Card {
 
-	private PIN pin;
+	private String user;
 
-	public Card(final PIN pin) {
-		this.pin = pin;
+	public Card(final String user) {
+		this.user = user;
 	}
 
-	public boolean worksWithPIN(final PIN pin) {
-		return this.pin.equals(pin);
+	public String user() {
+		return user;
 	}
-
 }
