@@ -11,12 +11,13 @@ public class ATMTest {
 
 	private Bank bank;
 	private Amount initialATMAmount;
+	private int valueForAmount = 1000;
 	private ATM atm;
 
 	@Before
 	public void initATM() {
 		bank = mock(Bank.class);
-		initialATMAmount = new Amount(1000);
+		initialATMAmount = new Amount(valueForAmount);
 		atm = new ATM(bank, initialATMAmount);
 	}
 
@@ -55,5 +56,14 @@ public class ATMTest {
 	public void cannotWithdrawMoneyIfAmountIsTooBig() {
 		Amount amountToBeWithdrawn = new Amount(100000);
 		assertFalse(atm.hasEnoughAmountToWithdraw(amountToBeWithdrawn));
+	}
+
+	@Test
+	public void canDecreaseATMAmount() {
+		Amount amountToBeWithdrawn = new Amount(10);
+		atm.decreaseATMAmountBy(amountToBeWithdrawn);
+		Amount newATMAmount = atm.atmAvailableAmount();
+		assertEquals(new Amount(valueForAmount - 10), newATMAmount);
+
 	}
 }

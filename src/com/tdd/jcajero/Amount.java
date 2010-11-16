@@ -25,4 +25,5 @@ public class Amount {
 		return value < amount.storedAmount();
 	}
 
+	
 }

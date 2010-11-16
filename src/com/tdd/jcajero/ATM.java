@@ -2,7 +2,7 @@ package com.tdd.jcajero;
 
 public class ATM {
 
-	private final Amount currentATMAmount;
+	private Amount currentATMAmount;
 	private final Bank bank;
 
 	public ATM(Bank bank, Amount initialATMAmount) {
@@ -20,5 +20,10 @@ public class ATM {
 
 	public boolean hasEnoughAmountToWithdraw(Amount amount) {
 		return amount.isLowerThan(currentATMAmount);
+	}
+
+	public void decreaseATMAmountBy(Amount amount) {
+		int newValue = currentATMAmount.storedAmount() - amount.storedAmount();
+		currentATMAmount = new Amount(newValue);
 	}
 }
