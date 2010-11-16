@@ -7,10 +7,9 @@ public class ATMTest {
 	
 	@Test
 	public void acceptCardTest(){
+		ATM atm = new ATM();
 		Card card = new Card("Alicia");
-		
-		ATM atm = new ATM(card);
-		assertTrue(atm.acceptCard());
+		assertTrue(atm.acceptCard(card));
 	}
 
 }
