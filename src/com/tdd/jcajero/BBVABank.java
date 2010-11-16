@@ -1,9 +1,10 @@
 package com.tdd.jcajero;
 
 public class BBVABank implements Bank {
+	private final BankConnector connector;
 
 	public BBVABank(BankConnector connector) {
-		// TODO Auto-generated constructor stub
+		this.connector = connector;
 	}
 
 	public Account accessAcount(Card card, PIN pin) {
@@ -12,7 +13,7 @@ public class BBVABank implements Bank {
 
 	@Override
 	public Amount accountBalance(String token) {
-		throw new UnsupportedOperationException("Not supported yet.");
+		return connector.accountBalance(token);
 	}
 
 }
