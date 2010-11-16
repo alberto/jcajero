@@ -1,11 +1,17 @@
 package com.tdd.jcajero;
 
-import com.tdd.jcajero.Amount;
-
 class Account {
+	private final Bank bank;
+	private final String token;
+
+	Account(Bank bank, String token) {
+		this.bank = bank;
+		this.token = token;
+		
+	}
 
 	Amount balance() {
-		return new Amount(2000);
+		return bank.accountBalance(token);
 	}
 
 }
