@@ -37,15 +37,4 @@ public class CardTest {
 		assertFalse(card.worksWithPIN(incorrectPin));
 	}
 
-	@Test
-	public void verifyCorrectPin() throws Exception {
-		Digit digit1 = new Digit(1);
-		Digit digit2 = new Digit(2);
-		Digit digit3 = new Digit(3);
-		Digit digit4 = new Digit(4);
-		PIN correctPin = new PIN(digit1, digit2, digit3, digit4);
-
-		assertTrue(card.worksWithPIN(correctPin));
-	}
-
 }
