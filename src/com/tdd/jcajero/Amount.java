@@ -9,10 +9,16 @@ package com.tdd.jcajero;
  *
  * @author alberto
  */
-class Amount {
+public class Amount {
+	private final int i;
 
-	Amount(int i) {
+	public Amount(int i) {
+		this.i = i;
 
+	}
+
+	public int storedAmount() {
+		return i;
 	}
 
 }
