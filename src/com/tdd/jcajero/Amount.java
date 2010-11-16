@@ -1,24 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 package com.tdd.jcajero;
-
-/**
- *
- * @author alberto
- */
 public class Amount {
-	private final int i;
+	private final int value;
 
-	public Amount(int i) {
-		this.i = i;
-
+	public Amount(int value) {
+		this.value = value;
 	}
 
 	public int storedAmount() {
-		return i;
+		return value;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		Amount comparedAmount = (Amount) o;
+		return amountsValueAreEqual(comparedAmount);
+	}
+
+	private boolean amountsValueAreEqual(Amount comparedAmount) {
+		return value == comparedAmount.storedAmount();
 	}
 
 }

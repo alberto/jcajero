@@ -45,4 +45,24 @@ public class AmountTest {
 		assertEquals(5, storedAmount);
 	}
 
+	@Test
+	public void twoAmountsAreEqualWhenTheyRepresentTheSameAmount() {
+		Amount five = new Amount(5);
+		Amount fiveAgain = new Amount(5);
+		assertEquals(five, fiveAgain);
+	}
+	
+	@Test
+	public void twoAmountsAreDifferentWhenTheyRepresentDifferentAmounts() {
+		Amount five = new Amount(5);
+		Amount six = new Amount(6);
+		assertFalse(five == six);
+	}
+
+	@Test
+	public void amountsCanBeNegative() {
+		Amount minusFive = new Amount(-5);
+		assertEquals(-5, minusFive.storedAmount());
+	}
+
 }
